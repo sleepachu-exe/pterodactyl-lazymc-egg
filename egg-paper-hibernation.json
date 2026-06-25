@@ -29,7 +29,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/bash\r\napt-get update -y\r\napt-get install -y curl\r\n\r\n## SIRF YEH LINE BADLO — apna GitHub username daal ke\r\nGITHUB_RAW=\"https:\/\/raw.githubusercontent.com\/YOUR_GITHUB_USERNAME\/pterodactyl-lazymc-egg\/main\"\r\n\r\necho \">>> Downloading install.sh from GitHub...\"\r\ncurl -sSL -o \/mnt\/install.sh \"${GITHUB_RAW}\/install.sh\"\r\nbash \/mnt\/install.sh",
+            "script": "#!\/bin\/bash\r\napt-get update -y\r\napt-get install -y curl\r\n\r\n## SIRF YEH LINE BADLO — apna GitHub username daal ke\r\nGITHUB_RAW=\"https:\/\/raw.githubusercontent.com\/sleepachu-exe\/pterodactyl-lazymc-egg\/main\"\r\n\r\necho \">>> Downloading install.sh from GitHub...\"\r\ncurl -sSL -o \/mnt\/install.sh \"${GITHUB_RAW}\/install.sh\"\r\nbash \/mnt\/install.sh",
             "container": "debian:bookworm-slim",
             "entrypoint": "bash"
         }
