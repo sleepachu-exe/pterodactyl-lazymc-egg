@@ -1,0 +1,79 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2024-01-01T00:00:00+00:00",
+    "name": "Paper with LazyMC Hibernation",
+    "author": "admin@example.com",
+    "description": "PaperMC server with LazyMC hibernation. Server sleeps when no players are online and auto-wakes when a player connects. Powered by github.com/sleepachu-exe/pterodactyl-lazymc-egg",
+    "features": [
+        "eula",
+        "java_version",
+        "pid_limit"
+    ],
+    "docker_images": {
+        "Java 17": "ghcr.io\/pterodactyl\/yolks:java_17",
+        "Java 21": "ghcr.io\/pterodactyl\/yolks:java_21",
+        "Java 11": "ghcr.io\/pterodactyl\/yolks:java_11",
+        "Java 8": "ghcr.io\/pterodactyl\/yolks:java_8"
+    },
+    "file_denylist": [],
+    "startup": "curl -sSL -o start.sh https://raw.githubusercontent.com/sleepachu-exe/pterodactyl-lazymc-egg/main/start.sh && chmod +x start.sh && bash start.sh",
+    "config": {
+        "files": "{}",
+        "startup": "{\"done\": \"[Server thread\\/INFO]: Done (\"}",
+        "logs": "{}",
+        "stop": "stop"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\napt-get update -y -q\r\napt-get install -y -q curl\r\n\r\nGITHUB_RAW=\"https:\/\/raw.githubusercontent.com\/sleepachu-exe\/pterodactyl-lazymc-egg\/main\"\r\n\r\necho \">>> Downloading install.sh from GitHub...\"\r\ncurl -sSL -o \/mnt\/install.sh \"${GITHUB_RAW}\/install.sh\"\r\necho \">>> Running install.sh...\"\r\nbash \/mnt\/install.sh",
+            "container": "debian:bookworm-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Minecraft Version",
+            "description": "The Minecraft version to install. Use 'latest' for the newest version.",
+            "env_variable": "MINECRAFT_VERSION",
+            "default_value": "latest",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Paper Build Number",
+            "description": "PaperMC build number. Use 'latest' for the newest build.",
+            "env_variable": "BUILD_NUMBER",
+            "default_value": "latest",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Server Jar File",
+            "description": "The name of the server jar file.",
+            "env_variable": "SERVER_JARFILE",
+            "default_value": "server.jar",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:50",
+            "field_type": "text"
+        },
+        {
+            "name": "Server Memory",
+            "description": "Amount of memory (MB) allocated to the Minecraft JVM. Default: 2048",
+            "env_variable": "SERVER_MEMORY",
+            "default_value": "2048",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|numeric|min:512",
+            "field_type": "text"
+        }
+    ]
+}

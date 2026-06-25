@@ -1,0 +1,33 @@
+[public]
+# LazyMC yahan players ka wait karta hai (Pterodactyl public port)
+# start.sh automatically SERVER_PORT env var se patch karta hai — yahan mat badlo
+address = "0.0.0.0:25565"
+
+[server]
+# Actual Minecraft server (internal, players directly access nahi karte)
+directory = "."
+address = "127.0.0.1:25500"
+# Memory aur jar filename start.sh patch karta hai automatically
+command = "java -Xms128M -Xmx2048M -Dterminal.jline=false -Dterminal.ansi=true -jar server.jar --nogui"
+wake_on_start = false
+wake_on_crash = true
+
+[time]
+# Seconds of idle time before server sleeps (180 = 3 minutes)
+sleep_after = 180
+minimum_online_time = 60
+
+[join]
+# Hold player connection while server is waking up
+hold = true
+hold_timeout = 120
+
+[rcon]
+# LazyMC uses RCON to gracefully stop the Minecraft server
+enabled = true
+address = "127.0.0.1:25575"
+password = "lazymc_rcon_pass"
+
+[log]
+# Show LazyMC status in console
+status = true
