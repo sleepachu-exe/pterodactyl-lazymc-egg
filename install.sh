@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
 #  Paper + LazyMC Hibernation — Install Script
-#  Repo: https://github.com/YOUR_GITHUB_USERNAME/pterodactyl-lazymc-egg
+#  Repo: https://github.com/sleepachu-exe/pterodactyl-lazymc-egg
 #
 #  SIRF YEH EK LINE BADLO apna GitHub username daal ke:
 #  YOUR_GITHUB_USERNAME
@@ -13,7 +13,7 @@ apt-get install -y curl jq file
 
 cd /mnt/server
 
-GITHUB_RAW="https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/pterodactyl-lazymc-egg/main"
+GITHUB_RAW="https://raw.githubusercontent.com/sleepachu-exe/pterodactyl-lazymc-egg/main"
 
 ## ── PaperMC ──────────────────────────────────────────────────────────
 if [ -z "${MINECRAFT_VERSION}" ] || [ "${MINECRAFT_VERSION}" = "latest" ]; then
